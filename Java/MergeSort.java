@@ -29,6 +29,25 @@ public class MergeSort {
         return returnArray;
     }
 
+    public static ArrayList<Integer> sort(ArrayList<Integer> array) {
+        if (array.size() <= 1) {
+            return array;
+        } else if (array.size() == 2) {
+            if (array.get(0) <= array.get(1)) {
+                return array;
+            } else {
+                ArrayList<Integer> returnArray = new ArrayList<Integer>();
+                returnArray.add(array.get(1));
+                returnArray.add(array.get(0));
+                return returnArray;
+            }
+        }
+        int midpoint = array.size() / 2;
+        ArrayList<Integer> leftArray = MergeSort.sort(new ArrayList<Integer>(array.subList(0, midpoint)));
+        ArrayList<Integer> rightArray = MergeSort.sort(new ArrayList<Integer>(array.subList(midpoint, array.size())));
+        return MergeSort.merge(leftArray, rightArray);
+    }
+
     public static ArrayList<Integer> copy(int[] array) {
         ArrayList<Integer> arrayList = new ArrayList<>();
 
@@ -40,6 +59,8 @@ public class MergeSort {
     }
     
     public static void main(String[] args) {
+        // test merge: 
+
         int[] leftArray = {0, 2, 4};
         ArrayList<Integer> leftArrayList = MergeSort.copy(leftArray);
 
@@ -48,5 +69,10 @@ public class MergeSort {
 
         ArrayList<Integer> sortedArray = MergeSort.merge(leftArrayList, rightArrayList);
         System.out.println(sortedArray);
+
+        // test merge-sort:
+        int[] testArray = {5, 4, 3, 2, 1, 0};
+        ArrayList<Integer> solution = MergeSort.sort(MergeSort.copy(testArray));
+        System.out.println(solution);
     }
 }
