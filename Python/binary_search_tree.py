@@ -33,6 +33,12 @@ def insert(node, data):
             node.right = instert(node.right, data)
     return node
 
+def minValueNode(node):
+    current = node
+    while current.left != None:
+        current = current.left
+    return current
+
 def delete(node, data):
     if not node:
         return None
