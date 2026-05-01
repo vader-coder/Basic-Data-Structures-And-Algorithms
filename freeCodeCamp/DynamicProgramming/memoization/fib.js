@@ -7,6 +7,8 @@ function fib(n, memo={}) {
     return memo[n];
 }
 
+// O(n) time complexity, O(n) space complexity
+
 console.log(fib(6)); // 8
 console.log(fib(7)); // 13
 console.log(fib(8)); // 21
