@@ -6,6 +6,25 @@
     f(n) = f(n-1), + f(n-2)
 */
 
+
+// my solution: 
+function fib(n) {
+    const table = Array(n+1).fill(0);
+    table[0] = 0;
+    table[1] = 1;
+
+    if (n >= 2) {
+        for (let i = 2; i <= n; i++) {
+            table[i] = table[i-1] + table[i-2];
+        }
+    }
+    
+    return table[n];
+}
+
+// Solution from the youtube video:
+
+/* 
 function fib(n) {
     const table = Array(n+1).fill(0);
     table[0] = 0;
@@ -17,6 +36,7 @@ function fib(n) {
     }
     return table[n];
 }
+*/
 
 // O(n) time complexity, O(n) space complexity
 
