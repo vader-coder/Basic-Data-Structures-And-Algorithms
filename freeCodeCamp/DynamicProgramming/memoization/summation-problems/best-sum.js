@@ -1,5 +1,5 @@
 /*
-    Write a function `howSum(target, numbers)` that takes in a target number and 
+    Write a function `bestSum(target, numbers)` that takes in a target number and 
     an array of numbers as arguments. 
 
     The function should return an array containing the shortest combination 
